@@ -8,6 +8,7 @@ public class LanguageSwitcherTests extends StudymateTestBase {
     @Test
     public void validateLoginPageLanguageSwitcherFunctionality() throws InterruptedException {
         LanguageSwitcherComponent languageSwitcherComponent = new LanguageSwitcherComponent(driver);
-        languageSwitcherComponent.validateLoginPageLanguageSwitcherFunctionality("Логин");
+        languageSwitcherComponent.validateLoginPageLanguageSwitcherFunctionality("Логин", "Пароль", "Язык", "Войти");
+
     }
 }

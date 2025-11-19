@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class LanguageSwitcherComponent {
     public LanguageSwitcherComponent(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -18,16 +20,31 @@ public class LanguageSwitcherComponent {
     WebElement russianLanguage;
 
     @FindBy(xpath = "//fieldset/legend/span")
-    WebElement email;
+    List<WebElement> texts;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement loginButton;
 
 
 
-    public void validateLoginPageLanguageSwitcherFunctionality(String expectedEmailText) throws InterruptedException {
+
+
+
+    public void validateLoginPageLanguageSwitcherFunctionality(String expectedEmailText, String expectedPasswordText, String expectedLanguageText, String expectedLoginText) throws InterruptedException {
         languageSwitcherButton.click();
         russianLanguage.click();
-        String emailLabelText = email.getAttribute("textContent");
+        String emailLabelText = texts.get(0).getAttribute("textContent");
+        String passwordLabelText = texts.get(1).getAttribute("textContent");
+        String languageLabelText = texts.get(2).getAttribute("textContent");
+
 
         Assert.assertEquals(emailLabelText, expectedEmailText);
+        Assert.assertEquals(passwordLabelText, expectedPasswordText);
+        Assert.assertEquals(languageLabelText, expectedLanguageText);
+
+        Assert.assertEquals(loginButton.getText(), expectedLoginText);
+
+
 
 
     }
