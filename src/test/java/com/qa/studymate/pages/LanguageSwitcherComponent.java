@@ -24,6 +24,10 @@ public class LanguageSwitcherComponent {
     @FindBy(xpath = "//li[@data-value='ru']")
     WebElement russianLanguage;
 
+    @FindBy(xpath = "//li[@data-value='en']")
+    WebElement englishLanguage;
+
+
     @FindBy(xpath = "//fieldset/legend/span")
     List<WebElement> texts;
 
@@ -55,6 +59,9 @@ public class LanguageSwitcherComponent {
         Assert.assertEquals(passwordLabelText, expectedPasswordText);
         Assert.assertEquals(languageLabelText, expectedLanguageText);
         Assert.assertEquals(loginButton.getText(), expectedLoginText);
+
+        languageSwitcherButton.click();
+        englishLanguage.click();
 
     }
 
