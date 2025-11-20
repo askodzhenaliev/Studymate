@@ -21,6 +21,7 @@ public class LoginPage {
 
     public void clickLoginButton() {
         loginButton.click();
+
     }
 
     public void loginFunctionality(String email, String password) {
