@@ -24,4 +24,15 @@ public class LoginTest extends StudymateTestBase{
         Assert.assertEquals(driver.getCurrentUrl(), ConfigReader.readProperty("mainPageUrl"));
     }
 
+    @Test
+    public void negativeLoginFunctionality(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.negativeLoginFunctionality(ConfigReader.readProperty("email"), "asdasda");
+
+        String actualError = loginPage.getErrorMessageText(driver);
+        String expectedError = "Invalid email or password";
+
+        Assert.assertEquals(actualError, expectedError);
+    }
+
 }
