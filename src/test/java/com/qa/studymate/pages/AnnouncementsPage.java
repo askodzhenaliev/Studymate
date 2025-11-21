@@ -1,4 +1,4 @@
-package com.studymate.pages;
+package com.qa.studymate.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

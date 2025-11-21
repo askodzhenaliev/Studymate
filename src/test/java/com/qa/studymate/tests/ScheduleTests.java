@@ -1,11 +1,11 @@
-package com.studymate.tests;
+package com.qa.studymate.tests;
 
-import com.studymate.base.BaseTest;
-import com.studymate.pages.SchedulePage;
+
+import com.qa.studymate.pages.SchedulePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ScheduleTests extends BaseTest {
+public class ScheduleTests extends StudymateTestBase {
 
     @Test
     public void schedulePageIsDisplayedWithMainElements() {

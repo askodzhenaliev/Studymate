@@ -1,11 +1,10 @@
-package com.studymate.tests;
+package com.qa.studymate.tests;
 
-import com.studymate.base.BaseTest;
-import com.studymate.pages.AnnouncementsPage;
+import com.qa.studymate.pages.AnnouncementsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AnnouncementsTests extends BaseTest {
+public class AnnouncementsTests extends StudymateTestBase {
 
     @Test
     public void announcementsPageIsDisplayedWithMainElements() {
