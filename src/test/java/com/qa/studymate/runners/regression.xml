@@ -12,8 +12,7 @@
             <class name="com.qa.studymate.tests.GroupListDisplayTest"> </class>
             <class name="com.qa.studymate.tests.CreateGroupTest"> </class>
             <class name="com.qa.studymate.tests.LanguageSwitcherMainPageTests"> </class>
-<!--            <class name="com.qa.studymate.tests.AnnouncementsTests"> </class>-->
-<!--            <class name="com.qa.studymate.tests.ScheduleTests"> </class>-->
+            <class name="com.qa.studymate.tests.AnnouncementsTests"> </class>
 
             <!-- You can add more smoke test classes here -->
             <!-- <class name="studymate.tests.CreateGroupTest"/> -->

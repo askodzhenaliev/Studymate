@@ -18,20 +18,20 @@ public class AnnouncementsPage {
             "https://codewise.studymate.us/admin/announcements?size=4&page=1";
 
     // Header & main elements
-    private final By pageTitle = By.xpath("//h1[contains(text(),'Announcements')]");
+    private final By pageTitle = By.xpath("//h2[contains(text(),'Announcements')]");
     private final By addAnnouncementButton =
             By.xpath("//button[contains(.,'Add an announcement')]");
-    private final By groupsDropdown = By.xpath("//div[contains(@class,'select') and .//span[text()='Groups']]");
-    private final By fromDateInput = By.xpath("//input[@placeholder='From' or @name='from']");
-    private final By tillDateInput = By.xpath("//input[@placeholder='Till' or @name='till']");
+    private final By groupsDropdown = By.xpath("//div[@aria-haspopup='listbox']");
+    private final By fromDateInput = By.xpath("//input[@id=':r0:']");
+    private final By tillDateInput = By.xpath("//input[@id=':r1:']");
 
     // Announcement card (first card on the page)
     private final By announcementCards = By.xpath("//div[contains(@class,'announcement-card') or .//div[contains(text(),'For whom')]]");
     private final By statusText = By.xpath(".//span[contains(text(),'Hidden') or contains(text(),'Published')]");
-    private final By forWhomValue = By.xpath(".//*[contains(text(),'For all') or contains(text(),'For whom')]/following::a[1]");
-    private final By createdByValue = By.xpath(".//*[contains(text(),'Who created')]/following::a[1]");
-    private final By textValue = By.xpath(".//*[contains(text(),'Text:')]/following-sibling::*[1]");
-    private final By dateValue = By.xpath(".//time | .//div[matches(., '\\d{1,2}\\.\\d{1,2}\\.\\d{2}')]");
+    private final By forWhomValue = By.xpath("//div[contains(text(), 'For all')]");
+    private final By createdByValue = By.xpath("//div[contains(text(), 'ADMIN')]");
+    private final By textValue = By.xpath("//p[1]");
+    private final By dateValue = By.xpath("//p[2]");
 
     public AnnouncementsPage(WebDriver driver) {
         this.driver = driver;
