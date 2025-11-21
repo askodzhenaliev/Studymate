@@ -32,13 +32,13 @@ public class LanguageSwitcherMainPageTests extends StudymateTestBase {
     @Test
     public void validateMainPageLanguageSwitcherFunctionality() throws InterruptedException {
         LanguageSwitcherComponent languageSwitcherComponent = new LanguageSwitcherComponent(driver);
-        Thread.sleep(10000);
+
         List<String> englishTexts = languageSwitcherComponent.getSidebarMenuTexts(driver);
         Assert.assertEquals(englishTexts, expectedEnglish);
 
         languageSwitcherComponent.clickRussianLanguage(driver);
         List<String> russianTexts = languageSwitcherComponent.getSidebarMenuTexts(driver);
         Assert.assertEquals(russianTexts, expectedRussian);
-
+        languageSwitcherComponent.clickEnglishLanguage(driver);
     }
 }

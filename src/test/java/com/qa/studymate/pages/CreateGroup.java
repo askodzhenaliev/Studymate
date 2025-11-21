@@ -10,7 +10,7 @@ public class CreateGroup {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//input[@type='file']")
+    @FindBy(xpath = "//form[@id='group-form']//input[@type='file']")
     WebElement photo;
     @FindBy(xpath = "//input[@name='name']")
     WebElement groupName;
@@ -21,7 +21,12 @@ public class CreateGroup {
     @FindBy(xpath = "//button[normalize-space()='Create']")
     WebElement createButton;
 
-    public void createGroupFunctionality(String groupName, String date, String description ) {
+    @FindBy(xpath = "//button[contains(text(), 'Create')]")
+    WebElement createGroupButton;
+
+    public void createGroupFunctionality(String groupName, String date, String description ) throws InterruptedException {
+
+        createGroupButton.click();
 
         String photoPath = System.getProperty("user.dir") + "/src/test/resources/images/Test.png";
         photo.sendKeys(photoPath);
@@ -31,9 +36,7 @@ public class CreateGroup {
         this.description.sendKeys(description);
         createButton.click();
 
-
     }
-
 
 }
 

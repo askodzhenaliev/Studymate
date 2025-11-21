@@ -1,6 +1,5 @@
 package com.qa.studymate.tests;
 
-
 import com.qa.studymate.pages.SchedulePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
