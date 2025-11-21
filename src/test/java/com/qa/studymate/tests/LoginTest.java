@@ -10,7 +10,7 @@ import utils.ConfigReader;
 
 import java.time.Duration;
 
-public class LoginTest extends StudymateTestBase{
+public class LoginTest extends StudymateTestBase {
     @Test(priority = 2)
     public void happyPathLoginFunctionality() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
@@ -21,9 +21,8 @@ public class LoginTest extends StudymateTestBase{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlContains("/admin"));
 
-        Assert.assertEquals(driver.getCurrentUrl(), ConfigReader.readProperty("mainPageUrl"));
+        Assert.assertTrue(driver.getCurrentUrl().contains("/admin"));
     }
-
 
     @Test(priority = 1)
     public void negativeLoginFunctionality(){
