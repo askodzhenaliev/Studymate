@@ -11,7 +11,7 @@ import utils.ConfigReader;
 import java.time.Duration;
 
 public class LoginTest extends StudymateTestBase {
-    @Test
+    @Test(priority = 2)
     public void happyPathLoginFunctionality() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginFunctionality(ConfigReader.readProperty("email"),
@@ -24,8 +24,8 @@ public class LoginTest extends StudymateTestBase {
         Assert.assertTrue(driver.getCurrentUrl().contains("/admin"));
     }
 
-    @Test
-    public void negativeLoginFunctionality() {
+    @Test(priority = 1)
+    public void negativeLoginFunctionality(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.negativeLoginFunctionality(ConfigReader.readProperty("email"), "asdasda");
 
