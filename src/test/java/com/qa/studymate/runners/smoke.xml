@@ -1,19 +1,15 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Regression Suite" verbose="1" parallel="false">
+<suite name="Smoke Suite" verbose="1" parallel="false">
 
-    <test name="Regression Tests">
+    <test name="Smoke Tests">
         <classes>
 
             <!-- Add ONLY most important/smoke tests here -->
-            <class name="com.qa.studymate.tests.LanguageSwitcherTests"> </class>
             <class name="com.qa.studymate.tests.LoginTest"/>
-            <class name="com.qa.studymate.tests.GroupListDisplayTest"> </class>
-            <class name="com.qa.studymate.tests.CreateGroupTest"> </class>
-            <class name="com.qa.studymate.tests.LanguageSwitcherMainPageTests"> </class>
             <class name="com.qa.studymate.tests.AnnouncementsTests"> </class>
+<!--            <class name="com.qa.studymate.tests.ScheduleTests"> </class>-->
 
             <!-- You can add more smoke test classes here -->
             <!-- <class name="studymate.tests.CreateGroupTest"/> -->

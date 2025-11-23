@@ -5,7 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
+<<<<<<< HEAD
     <artifactId>SeleniumB10</artifactId>
+=======
+    <artifactId>Studymate</artifactId>
+>>>>>>> production
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -16,6 +20,7 @@
 
     <dependencies>
 
+<<<<<<< HEAD
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -24,13 +29,24 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+=======
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.34.0</version>
+        </dependency>
+
+>>>>>>> production
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.11.0</version>
         </dependency>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> production
     </dependencies>
 
 </project>
