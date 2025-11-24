@@ -14,14 +14,6 @@ public class SidebarNavigation {
     public SidebarNavigation(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
-    @FindBy (xpath = "//input[@name='email']")
-    WebElement email;
-
-    @FindBy(xpath = "//input[@name='password']")
-    WebElement password;
-
-    @FindBy(xpath = "//button[@type=\"submit\"]")
-    WebElement loginButton;
 
     @FindBy(xpath = "//li[@class=\"MuiListItem-root MuiListItem-gutters MuiListItem-padding sc-idXgbr VObHa css-1yo8bqd\"]")
     List<WebElement>allCategories;
@@ -35,12 +27,6 @@ public class SidebarNavigation {
     @FindBy(xpath = "//li[@class='MuiListItem-root MuiListItem-gutters MuiListItem-padding sc-hLBbgP kzZhbr css-1yo8bqd']")
     List<WebElement>categoriesInRussian;
 
-    public void loginFunctionality(String myEmail, String myPassword) throws InterruptedException {
-        email.sendKeys("admin@codewise.com");
-        password.sendKeys("codewise_123");
-        loginButton.click();
-        Thread.sleep(3000);
-    }
 
     public void validateAllCategories() throws InterruptedException {
         for (WebElement eachCategory:allCategories){
