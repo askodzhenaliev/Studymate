@@ -1,8 +1,9 @@
 package com.qa.studymate.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,46 +17,62 @@ public class SchedulePage {
 
     private static final String PAGE_URL = "https://codewise.studymate.us/admin/schedule";
 
-    private final By pageTitle = By.xpath("//h1[contains(text(),'Schedule') or contains(text(),'Calendar')]");
-    private final By currentPeriodLabel =
-            By.xpath("//div[contains(@class,'toolbar')]//span[contains(@class,'label') or contains(.,'20')]");
-    private final By groupFilter = By.xpath("//div[contains(@class,'select')][.//div[text()='all']]");
-    private final By statusFilter = By.xpath("//div[contains(@class,'select')][.//div[text()='All']]");
-    private final By viewSwitcher = By.xpath("//div[contains(@class,'select')][.//div[text()='Month']]");
-    private final By createEventButton = By.xpath("//button[contains(.,'Create event')]");
-    private final By calendarCells = By.xpath("//div[contains(@class,'rbc-day-bg') or contains(@class,'rbc-date-cell')]");
-
     public SchedulePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        PageFactory.initElements(driver, this);
     }
+
+    // ------------------------- ELEMENTS -------------------------
+
+    @FindBy(xpath = "//button[contains(.,'Create event')]")
+    WebElement createEventButton;
+
+    @FindBy(xpath = "//div[@id='mui-component-select-groupId']")
+    WebElement groupFilter;
+
+    @FindBy(xpath = "//div[@id='mui-component-select-eventStatus']")
+    WebElement statusFilter;
+
+    @FindBy(xpath = "//div[contains(text(), 'Month')]")
+    WebElement viewSwitcher;
+
+    @FindBy(xpath = "//p[contains(text(), '20')]")
+    WebElement currentPeriodLabel;
+
+    // FIXED: Use contains for reliability
+    @FindBy(xpath = "//div[contains(@class,'fc-daygrid-day-frame')]")
+    List<WebElement> calendarCells;
+
+    // ------------------------- METHODS -------------------------
 
     public SchedulePage open() {
         driver.get(PAGE_URL);
         wait.until(ExpectedConditions.urlContains("/admin/schedule"));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(createEventButton));
+        wait.until(ExpectedConditions.visibilityOf(createEventButton));
         return this;
     }
 
     public boolean isCreateEventButtonVisible() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(createEventButton)).isDisplayed();
-    }
-
-    public String getCurrentPeriodText() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(currentPeriodLabel)).getText();
+        wait.until(ExpectedConditions.visibilityOf(createEventButton));
+        return createEventButton.isDisplayed();
     }
 
     public boolean isFiltersSectionVisible() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(groupFilter));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(statusFilter));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(viewSwitcher));
+        wait.until(ExpectedConditions.visibilityOf(groupFilter));
+        wait.until(ExpectedConditions.visibilityOf(statusFilter));
+        wait.until(ExpectedConditions.visibilityOf(viewSwitcher));
         return true;
     }
 
+    public String getCurrentPeriodText() {
+        wait.until(ExpectedConditions.visibilityOf(currentPeriodLabel));
+        return currentPeriodLabel.getText().trim();
+    }
+
+    // FIXED LOGIC + FIXED LOCATOR + SAME STYLE AS YOUR COMPONENT
     public boolean isCalendarGridVisible() {
-        List<WebElement> cells = wait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(calendarCells)
-        );
-        return !cells.isEmpty();
+        wait.until(ExpectedConditions.visibilityOfAllElements(calendarCells));
+        return !calendarCells.isEmpty();
     }
 }
