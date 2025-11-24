@@ -4,7 +4,7 @@ import com.qa.studymate.pages.SidebarNavigation;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class SidebarNavigationTest extends TestBase {
+public class SidebarNavigationTest extends StudymateTestBase {
     @Parameters({"myEmail","myPassword"})
 
     @Test
